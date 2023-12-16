@@ -1,9 +1,3 @@
-# RocketTakeOFF-Landing
-
-Certainly! Writing a good README file is crucial for sharing your MATLAB simulation project. Below is a template that you can use as a starting point. Make sure to customize it according to the specifics of your project.
-
----
-
 # Rocket Takeoff and Landing Simulation with Trust Vector Control
 
 ## Overview
