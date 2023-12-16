@@ -12,7 +12,7 @@ This MATLAB simulation project focuses on the 3 Degree of Freedom (3DOF) control
 
 ## Requirements
 
-- MATLAB R201X or later
+- MATLAB R2020b or later
 - [Additional MATLAB Toolboxes, if any]
 
 ## Usage
