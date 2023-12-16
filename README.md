@@ -8,7 +8,7 @@ Certainly! Writing a good README file is crucial for sharing your MATLAB simulat
 
 ## Overview
 
-This MATLAB simulation project focuses on the 3 Degree of Freedom (3DOF) control system for rocket takeoff and landing. The simulation utilizes Trust Vector Control (TVC) to control the pitch angle and flight path angle of the rocket.
+This MATLAB simulation project focuses on the 3 Degree of Freedom (3DOF) control system for rocket takeoff and landing. The simulation utilizes Thrust Vector Control (TVC) to control the pitch angle and flight path angle of the rocket.
 
 ## Features
 
@@ -25,8 +25,7 @@ This MATLAB simulation project focuses on the 3 Degree of Freedom (3DOF) control
 
 1. **Clone the Repository:**
     ```bash
-    git clone https://github.com/iamnarendrans/.git
-    cd rocket-tvc-simulation
+    git clone https://github.com/iamnarendrans/RocketTakeOFF-Landing.git
     ```
 
 2. **Run the Simulation:**
@@ -41,14 +40,6 @@ This MATLAB simulation project focuses on the 3 Degree of Freedom (3DOF) control
 ## Results
 
 Include visualizations or descriptions of the simulation results. Screenshots, graphs, or animations can be added here.
-
-### Takeoff Phase
-
-![Takeoff Phase](./results/takeoff_phase.png)
-
-### Landing Phase
-
-![Landing Phase](./results/landing_phase.png)
 
 ## License
 
