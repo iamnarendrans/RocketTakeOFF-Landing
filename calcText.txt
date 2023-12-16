@@ -1,0 +1,90 @@
+Ref 1: https://www.b14643.de/Spacerockets_2/United_States_1/Falcon-9/Merlin/index.htm
+Ref 2: http://www.georing.biz/usefull/Falcon1UsersGuide.pdf
+
+Engine Model
+
+Merlin 1Ci Engine - Used on Falcon 1: 2006-2010
+
+1. Thrust (MSL, Vac) = 78000lbf, 88700lbf or 346961.28N, 394557.26N
+2. Specific Impulse (MSL, Vac) = 267s, 300s
+3. Mass Flow Rate m° ≈ 134.4 Kg/s
+4. Burn Time ≈ 169s
+
+Hand calculation for m° from the impulse:
+
+Isp: (T[N]/(m°[kg/s].g)) - Metric or Isp: T[lbf]/m°[lb/s]
+
+MSL: m° = 132.46 Kg/s --> gives a 162.24s burn time
+Vac: m° = 134.06 Kg/s --> gives a 160.30s burn time
+
+So it's ok to assume a constant thrust and mass flow rate for a specified burn time [but not in reality]
+
+
+Vehicle Model
+
+1. Dry Mass: 1360.7 Kg
+2. Fuel Mass: 21491.26 Kg
+3. Payload Mass: 5000 Kg
+4. Length 15 m
+5. Diameter: 1.5 m
+6. C.G Location: 7 m from base
+
+
+Equations of Motion
+
+1. Liftoff and Gravity Turn
+
+dv/dt = (T-D/m) - g.sin(γ)
+
+v.dγ/dt = -(g - v^2/R^E + h).cos(γ)
+
+dx/dt = (R^E/R^E + h).v.cos(γ)
+
+dh/dt = v.sin(γ)
+
+
+Wheres : T - Thrust, D - Drag, V - Velocity, M - Mass, g - acceleration due to gravity, γ - flight path angle, R^E - Radius of the earth, h - height
+
+2. Pitching Moment
+d^2(θ) = (T_l*d_2)/J_y
+
+Wheres: θ - Pitch angle, T_l - Force of cold gas propulsion system, d_2 - Moment, J_y - Moment of Inertia
+
+
+3. Our simulation parameters
+
+* Time of Flight [Phase 1]: 103s
+* Time of Flight [Phase 2]: 211s
+* Max Speed Attained : 940m/s
+* Max Height Reached: 32.45km
+* Landing Touchdown Speed: ≈ 150m/s
+* Liftoff thrust: 346961.28N
+* Initial Orientation γ = 90°
+* Landing Pad distance from launch site: 83km
+* Launch site: Cape Canaveral <28.608397N, 80.604345W>
+
+
+PID Controller Design
+
+We are choosing PD controller, coz its a second order system, which is marginally stable
+
+Open Loop TF: θ(s)/T(s) = 0.04/s^2
+D-Controller TF: C = (1/0.04)*s = 25*s
+Closed loop TF: 1/s+1 
+Closed loop performance: e^-t
+
+NOTE: d_2 = 5.0m, J_y= 200 kg.m^2
+*************************************************************************************************************
+Function Summary
+
+1. PHASE 1: TAKEOFF
+Use 65% of fuel for max thrust
+mfb = fuel
+Burned(T/O)
+
+2. PHASE 2: LANDING
+Use remaining 35% of fuel
+
+Use 1/3rd thrust b/w ≈ 100-260s
+This means 1/3rd mass flow rate!
+mfb2 = fuel burned (landing)
