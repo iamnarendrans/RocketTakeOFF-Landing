@@ -37,4 +37,4 @@ Include visualizations or descriptions of the simulation results. Screenshots, g
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [GNU GENERAL PUBLIC LICENSE](LICENSE).
